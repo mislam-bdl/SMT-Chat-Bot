@@ -1,0 +1,78 @@
+NOTE: Most printers require a 0.1 mm offset. Most problems pertaining to screw fit (tight or too loose) is for offset.
+
+Smart Mouth FAQs
+Who We Are
+Combining the expertise of dental professionals and engineers, Smart Mouth creates innovative solutions to address key pain points in full-arch restorations—including premature prosthetic breakage, excessive chair time, and inaccurate post-op digital conversions.
+
+Founded: 2023
+Launch Year: 2025
+Pipeline: 5–6 new hardware and software products launching throughout 2025
+
+
+Badger Screw FAQ
+Product Goal
+A direct-to-MUA screw engineered for the Goldilocks Zone: maximum clamping force with minimum screw-channel stress.
+
+Radiused clamping surface distributes load evenly around shaft and head
+Vertical clamping priority reduces lateral stress
+Smaller screw head (enabled by shaft-based retention) preserves prosthetic material and increases prosthetic strength
+
+Purchasing Options
+
+
+
+Quantity,	Price	,	Discount,	Bonus Tokens (Value),	Total Value
+10,		$180,—,—,—
+50,		"$1,140",	5% off,		10 tokens ($132.50),	$72.50 + $60
+100,		"$2,160",	10% off,	10 tokens ($312.50),$72.50 + $240
+Bulk,Call for custom pricing,,,
+
+
+Technical Specifications
+
+Head diameter: 2.00 mm
+Screw-channel diameter: 2.04 mm
+Clamping force: ~136 N
+Screw-channel stress: ~35 MPa
+Driver: 0.048″ (1.22 mm) hex
+Required due to reduced head size
+
+Angle correction: Not available at this time (rarely needed with smaller head)
+
+Intended Use & Compatibility
+
+Primary application: Direct-to-MUA (multi-unit abutment)
+Not compatible with single-unit Ti-base restorations (incorrect thread pattern)
+
+Design Libraries
+
+Exocad
+3Shape
+Hyperdent
+Millbox
+Milling note: Screw channels millable with 1 mm endmill
+
+Compatible MUA Brands
+3i® • Adin® • Astra® • BlueSkyBio® • Biohorizons® • Cortex® • Dentsply® • Dess® • GenTek ZFX® • Hiossen® • Keystone® • Megagen® • Medentika IPS® • Neodent® • NobelBiocare® • Noris® • Osstem® • Southern Implants® • SRL® • Straumann® • Thommen Medical® • ZFX® • ZimVie®
+
+Frequently Asked Questions
+Q: Which screw-channel geometries are supported?
+A: Badger, Powerball, Dess Long (1.4 mm thread), Dess Short, Rosen
+Q: Are Ti-bar cases supported?
+A: Not at this time—software is limited to monolithic cases
+Q: Is the software FDA-certified?
+A: No
+Q: What if my arch still breaks?
+A: WIB cannot guarantee outcomes due to variables outside design (manufacturing errors, implant positioning, installation technique, patient habits)
+Q: Where are common stress points?
+A: Run the 6 simulations—typical hotspots appear on:
+
+Cantilevers
+Interproximal areas between teeth
+MUA base transitions
+Sharp geometric transitions
+
+Q: Where do I access results?
+A: Click the WIB Portal button on our website
+Q: Is patient data secure (HIPAA)?
+A: All patient information is encrypted and scrambled immediately upon entry

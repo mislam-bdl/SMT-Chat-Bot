@@ -1,0 +1,78 @@
+NOTE: Most printers require a 0.1 mm offset.
+NOTE: Most printers require a 0.1 mm offset. Most problems pertaining to screw fit (tight or too loose) is for offset.
+# Smart Mouth Technologies - Badger Screw RAG Training Document
+# Format: Q&A + Facts for AI Training
+# File: badger_screw_rag.txt
+# Last Updated: 2025-11-11
+
+[Q] What is the Badger Screw?
+[A] The Badger Screw is a 2.0 mm head screw with a 2.04 mm channel, designed for direct-to-MUA full-arch restorations.
+
+[Q] What causes screw access holes to be too narrow when 3D printing?
+[A] Using the milling library instead of the 3D printing library. The milling library has no offset, so resin shrinkage and printer variability make channels undersized.
+
+[Q] How do I fix tight screw channels in 3D printed prototypes?
+[A] Switch to the 3D Printing Library and apply a printer-specific offset (+0.05 mm to +0.1 mm).
+
+[Q] Where do I download the 3D Printing Library for Exocad?
+[A] https://smartmouthtechnologies.com/libraries/
+
+[Q] Where do I download the Milling Library?
+[A] https://smartmouthtechnologies.com/libraries/
+
+[Q] What is the default offset for 3D printing?
+[A] +0.1 mm. Adjust after calibration.
+
+[Q] What offset should I use for Formlabs 4B?
+[A] +0.05 mm (top), +0.1 mm (middle). Calibrate with test block.
+
+[Q] What offset should I use for Sprintray Pro2 with Onyx2 resin?
+[A] +0.1 mm
+
+[Q] Do I need an offset when milling the final prosthetic?
+[A] No. Use the milling library as-is.
+
+[Q] How do I calibrate my 3D printer for Badger Screw?
+[A] 1. Download calibration block:
+   2. Print with test channels (1.9 mm to 2.1 mm)
+   3. Test fit Badger screw in each hole
+   4. Record the smallest channel with smooth insertion
+   5. Set offset = (actual channel size - 2.04 mm)
+
+[Q] Who reported tight screw channels?
+[A] Dr. Hayden Smith (3D printed prototype), Austin Westover (Sprintray Pro2 + Onyx2), New Smile Columbus (Formlabs 4B in-office)
+
+[Q] Can I use angled screw channels?
+[A] Only on milling machines with T-cutters. Do not angle if your mill lacks T-cutters.
+
+[Q] What CAM software supports Badger Screw?
+[A] HyperDent (fully integrated), Mill Box, VHF mills
+
+[Q] What offset should I use for VHF mills?
+[A] +0.05 mm. Test larger if needed.
+
+[Q] How do I contact support?
+[A] Email: support@smartmouth.tech
+   Schedule call with engineer or lab support
+
+[Q] Where can I watch instructional videos?
+[A] YouTube: https://www.youtube.com/@smartmouthtechnologies
+
+[Q] Is there a reamer tool coming?
+[A] Yes, in development with Conmetior. Expected Q4 2025.
+
+[Q] What is the product page?
+[A] https://smartmouthtechnologies.com/store/
+
+[Q] Dr. Samir Patel from Thayer Dental Care asked about bulk pricing and digital libraries. What was the response?
+[A] Libraries shared: https://smartmouthtechnologies.com/libraries/
+   Confirmed in-office printing on Sprintray
+   Recommended: Print calibration block, use +0.1 mm offset, communicate offset to designer
+
+[FACT] Never use the milling library for 3D printing.
+[FACT] Always calibrate with a test block before production.
+[FACT] Save your printer’s offset in a shared lab protocol.
+[FACT] Milled finals: No offset needed.
+[FACT] Printed temporaries/try-ins: +0.1 mm default offset.
+
+# END OF FILE

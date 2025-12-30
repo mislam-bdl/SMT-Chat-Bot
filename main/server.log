@@ -1,0 +1,35 @@
+
+Loading and indexing your Smart Mouth documents...
+Loaded: case.txt
+Loaded: Chatbot_rag.txt
+Loaded: FAQ01.txt
+Loaded: issues.txt
+Loaded: Mill_print.txt
+Loaded: presentation.txt
+Loaded: printing_milling_ins.txt
+Loaded: Product.txt
+Loaded: QnA_AI.txt
+Loaded: SCANBODY_ANSWER.txt
+Loaded: WIB.txt
+Split into 97 chunks.
+Indexing complete — 97 chunks ready!
+
+
+======================================================================
+   SMART MOUTH RAG ASSISTANT — RUNNING PERFECTLY
+   URL : http://localhost:5000
+   Debug : http://localhost:5000/debug?q=your question
+   Make sure Ollama is running: ollama serve
+======================================================================
+
+ * Serving Flask app 'app'
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.16.21.52:5000
+Press CTRL+C to quit
+127.0.0.1 - - [02/Dec/2025 11:16:15] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Dec/2025 11:16:15] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Dec/2025 11:17:02] "POST /rag HTTP/1.1" 200 -
+127.0.0.1 - - [02/Dec/2025 11:17:40] "POST /rag HTTP/1.1" 200 -

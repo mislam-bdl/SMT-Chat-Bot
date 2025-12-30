@@ -1,0 +1,55 @@
+NOTE: Most printers require a 0.1 mm offset. Most problems pertaining to screw fit (tight or too loose) is for offset.
+
+Q & A Summary – Badger Screw Protocol & Driver Use
+Q: When should I use a straight driver vs. an angled ball hex driver?
+
+A:
+
+Use the straight driver most of the time.
+
+Use the angled ball hex driver only when screw channels are angled more than ~10°, which is required to properly torque Badger screws.
+
+Q: Why do you always start with the straight driver?
+
+A:
+The straight driver retains the screw much better than a ball driver. It allows you to:
+
+Deliver the screw into the access hole intraorally.
+
+Give the screw a few turns to engage the MUA threads.
+After that, you can safely switch to the angled driver for final torque.
+
+Q: What is the exact protocol for delivering Badger screws in angled screw channels?
+
+A:
+
+Place the Badger screw on a straight driver.
+
+Insert into the access hole and turn it a few rotations until it engages the MUA threads.
+
+Remove the straight driver.
+
+Place all remaining screws; for straight channels, snug them to ~10 Ncm.
+
+Switch to the angled ball driver and torque all screws in a star pattern:
+
+15 Ncm for polymers (resin, PMMA)
+
+20 Ncm for zirconia
+
+Fill the access: PTFE tape first, then 2 mm of ClipFlow, light cure 10 seconds.
+
+Q: What straight driver do you recommend as a more affordable option?
+
+A:
+A good, cost-effective choice is the Dess 1.2 mm / 0.48" hex driver. (Link provided separately.)
+
+Q: What causes most screw-fitting issues?
+
+A:
+Most of the time, screw-fitting problems stem from not having the correct prescribed offset. Ensuring the offset is properly re-scribed is critical for ideal seating and torque.
+
+Q: Do you sell in UK or Canada or Mexico or Europe?
+
+A:
+Right now we only sell in the US. But we are working on going international

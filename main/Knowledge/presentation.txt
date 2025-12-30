@@ -1,0 +1,196 @@
+## 1. INTRODUCTION & LEARNING OBJECTIVES
+
+
+
+
+## 2. WHAT PROBLEMS DOES THE BADGER SCREW SOLVE?
+Q: What makes a good screw?
+A: 
+- Small access hole size
+- High clamping force
+- Low Stress–High contact area
+- Has good features yet high performance
+
+Q: What do today’s screws focus on instead of performance?
+A: Features (Price, Large angle correction, Height Adjustability, Color)
+
+Q: Features ≠ Outcomes. What should be measured instead?
+A: Performance metrics:
+- Access hole diameter
+- Preload (N)
+- Bearing surface/screw seat stress
+- Contact area
+
+> "Features ≠ Outcomes" [Red] | "Measure What Matters" [Green]
+
+## 3. UNDERSTANDING PRELOAD & CLAMPING FORCE
+Q: What is preload or clamping force?
+A: The ONLY component that keeps the prosthesis seated.
+
+Q: What counteracts screw preload?
+A: Force applied on the prosthesis.
+
+Q: What happens if there is not enough preload?
+A: 
+- Eventually screw is unloaded
+- Prosthesis is no longer secured
+- Screw can loosen and, over time, back out fully
+
+## 4. BADGER HEAD ADVANTAGE VS COMPETITORS (Contact Area & Design)
+### Set 1 – Contact Area (mm²):
+- DESS: 2.2 mm² → small contact area → pressure spikes, higher friction, farther from center, higher stress
+- Vortex: 3.1 mm² → flat, wide seat → higher friction and farther from center, lower clamping force
+- Powerball: 4.2 mm² → flat, wide seat → high friction, lower clamping force
+- **Badger: 4.5 mm²** → cupped inner seat → pulls friction inward, higher clamping force, lower stress, keeps strength high
+
+### Set 2 – Contact Area (mm²):
+- Segscrew: largest access hole → weakens arch, poor contact optimization, low clamping force
+- Rosen: 9.5 mm² → large contact area → friction too high, consumes torque, lowest clamping force
+- Vortex: 11 mm² → large contact area
+- **Badger: 4.5 mm²** → cupped inner seat → optimized friction, higher clamping force, lower stress
+
+> Key Insight: Shape-driven performance — how much torque becomes real clamp force.
+
+## 5. CLAMPING FORCE RESULTS (Zirconia Prosthesis)
+Q: How does Badger compare in clamping force?
+A: Highest initial and settled force among tested screws.
+
+| Screw     | Initial Force (N) | Settled Force (N) |
+|-----------|-------------------|-------------------|
+| Badger    | ~330              | ~310              |
+| Screw #1  | ~290              | ~270              |
+| Screw #2  | ~280              | ~260              |
+| Screw #3  | ~240              | ~220              |
+| Screw #4  | ~220              | ~200              |
+| Screw #5  | ~120              | ~100              |
+
+> "Higher clamping force is better!"
+
+## 6. SCREW DESIGN PRINCIPLES
+Q: Why do sharp edges matter?
+A: BAD – Concentrates stress
+
+Q: What is better than sharp edges?
+A: Rounded contours → dissipate stress
+
+Q: What else affects performance?
+A: Material thickness under screw head
+
+## 7. PMMA vs. ZIRCONIA BEHAVIOR
+Q: How does clamping force behave in PMMA/printed arches?
+A: Settles rapidly – can lose up to 100N of preload in seconds
+
+Q: How does clamping force behave in zirconia?
+A: Stable over time, minimal settling
+
+> Graphs: 
+> - Zirconia: Flat line ~300–350 N after initial spike
+> - PMMA: Rapid drop from ~350 N → ~250 N within 100 seconds
+
+## 8. CYCLIC LOADING
+Q: What is the mouth in terms of mechanical stress?
+A: A cyclic loading machine
+
+Q: In cyclic loading (PMMA), how does Badger perform vs popular screw?
+A: 
+- Badger 15 Ncm: settles at ~273 N
+- Badger 20 Ncm: settles at ~229 N
+- Popular Screw 0.8mm 15 Ncm: settles at ~195 N
+- Popular Screw 1.4mm 15 Ncm: settles at ~105 N
+
+> Graph shows Badger maintaining highest force over 200 seconds of cyclic loading.
+
+## 9. TORQUE SPECIFICATION & SAFETY
+Q: What factors determine torque recommendations?
+A: 
+- Retaining clamping force as screw is angled
+- Screw elongation
+- Margin of safety
+- Avoid approaching elastic limit (60% of elastic limit = proof)
+- Higher validated torque → more preload
+
+Q: Torque-Preload by Angle (Linear Fit Data):
+| Angle | R²     | Slope (N/Ncm) |
+|-------|--------|---------------|
+| 0°    | 0.983  | 44.48         |
+| 5°    | 0.979  |               |
+| 10°   | 0.974  |               |
+| 15°   | 0.989  |               |
+| 20°   | 0.986  |               |
+
+> Test: Badger Screw torqued to 35 Ncm shows no permanent deformation.
+
+Q: What is the myth about angled screws?
+A: The "wedge effect" is a myth! (Physical demo: no wedging or splitting occurs)
+
+## 10. HOW TO USE BADGER SCREWS
+### Recommended Torque:
+- **Printing (Resin):** 15 Ncm
+- **Milling (PMMA):** 15 Ncm
+- **Milling (Zirconia):** 20 Ncm
+- Driver: 0.048” hex / 1.2 mm
+
+## 11. 3D PRINTING CALIBRATION (Exocad Workflow)
+1. Download the calibration block
+2. Thoroughly clean and cure the Calibration Block
+3. Insert a Badger Screw into each access hole
+4. Note alignment: negative = hole too small, positive = hole too large
+5. Find where top edge of Badger Screw head aligns with indication line
+6. Download 3D Printing library
+7. In Exocad, select MUA/Badger Screw interface matching your calibration number
+
+## 12. MILLING INSTRUCTIONS
+Q: Can you mill Badger if you mill Vortex or Powerball?
+A: Yes
+
+Q: Supported CAM software?
+A: Hyperdent or Millbox (updated versions)
+
+Q: Required tools for milling Badger SCREW?
+A: 
+- Ball endmills
+- Flat endmills
+- Bullnose endmills
+- T-cutters for angles (1.4 mm and 1.6 mm)
+
+
+Q/ A customer asked me to modify milling strategies for badger screw. For straight channels, I decided to go 1.5 BullNose to create perfect screw seat. But I can not find any suitable T-Tool for the angulated channel ( milling screw seat from cavity side ) as the hole is just 1.5mm and my smallest T tool is D 1.65. Do you have a recommended milling workflow and tools? My knowledge tells me BN-D1.5 for implant(multiunit) interface, BN-D1.5 for screw seat area straight channels, and D1.5 T-tool for angulated screw seat ( but I can not find any suitable tool, customer has 4mm shank ).
+
+A.Thank you for reaching out. 
+
+
+It sounds like you are doing everything correctly! The 1.5mm Bullnose is the standard tool that we also use for milling the Badger screw seat from the occlusal side. When it comes to the cavity side machining of the screw seat for PMMA, we have a tool that is a 1.4mm dia T-Cutter. However, that tool has a 6mm dia shank. We do also have a machine that we use only for Zirconia prostheses that requires tools to have a 4mm diameter. The T-Cutter we have on that machine is a 1.6mm dia tool as the zirconia prosthesis shrink during sintering. 
+
+We get our tools through Axsys Dental Solutions and I believe they should have 1.4mm diameter T-Cutters for tools that have both 4 and 6mm dia shanks. The link to their website is below. 
+
+https://store.axsysdental.com/
+
+
+I hope that answered your question. Feel free to let us know if there is anything else we can do to help. 
+
+
+> Clarification: 
+**Ball, flat, or bullnose endmills can be used to mill the Badger Screw seat and access channel.
+** If you can mill powerball, Dess or vortex. YOU CAN MILL BADGER
+** T-cutters are specifically for angled undercuts.
+
+## 13. FUTURE DEVELOPMENTS
+- Clinical trial in progress
+- 3rd party mechanical testing in progress
+- Collaborations: Harvest, Comitor, MT Tech, UAB
+
+## KEY TAKEAWAYS
+- Preload is the ONLY force keeping full arch prosthesis seated
+- Badger Screw maximizes clamping force via cupped seat design
+- Contact area: 4.5 mm² (optimized, not largest)
+- Torque: 15 Ncm (PMMA/Resin), 20 Ncm (Zirconia)
+- Do NOT over-rely on features — measure preload, stress, contact
+- Wedge effect = myth
+- Use calibration block for precise 3D printing fit
+- Milling: Use ball, flat, or bullnose endmills for seat geometry
+
+## END OF TRAINING DATA
+# Total Pages Processed: 17
+# Images Referenced: 14 (with visual context)
+# Use this dataset for RAG, fine-tuning, or Q&A systems in dental CAD/CAM and implantology.
+# Updated with tooling clarification: Ball, flat, or bullnose endmills can be used to mill.

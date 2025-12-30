@@ -1,0 +1,141 @@
+NOTE: Most printers require a 0.1 mm offset. Most problems pertaining to screw fit (tight or too loose) is for offset.
+NOTE: Most printers require a 0.1 mm offset.
+# SmartMouth Technologies: Badger Screw Design & Printing Guide
+# For Dental Labs Using Exocad, HyperDent, or Mill Box
+# Last Updated: November 11, 2025
+
+## 1. DOWNLOAD & INSTALL THE BADGER SCREW LIBRARY
+
+- Visit **https://smartmouthtechnologies.com/libraries/**
+- Download the **Badger Screw 3D Printing Library** (includes:
+  - Universal MUA (most common)
+  - Nobel Biocare® compatible interface
+  - Straumann® compatible interface
+  - Calibration block STL
+)
+- Import the library into your CAD software:
+  - **Exocad**: File > Open Library > Select .elib file
+  - **HyperDent**: Resources > Implant Libraries > Import
+  - **Mill Box**: Libraries > Import Geometry
+
+> **Note**: Angled screw channels require **T-cutter enabled mills**. Do **NOT** angle channels if your mill lacks T-cutters.
+
+---
+
+## 2. CALIBRATE YOUR 3D PRINTER (REQUIRED FOR ACCURACY)
+
+1. **Print the Calibration Block**
+   - Load the **Badger Screw Calibration Block STL**
+   - Use your standard resin and print settings
+   - Print **flat on the build plate** (no rotation needed)
+
+2. **Measure Each Hole with a Digital Caliper**
+   - Measure **X and Y diameters** of all test holes
+   - Record actual vs. expected values
+
+3. **Calculate Offset**
+   - Example: Expected = 2.00 mm | Actual = 2.10 mm → **Offset = +0.1 mm**
+
+4. **Apply Offset in CAD Library**
+   - In the Badger Screw library settings:
+     - Set **Global Offset = +0.1 mm** (or your measured value)
+     - Save as default for future cases
+
+---
+NOTE: In MOST cases +0.1 mm** Offset will work
+
+
+## 3. DESIGNING WITH BADGER SCREW IN YOUR CAD SOFTWARE
+
+### Step-by-Step (Exocad Example – Works Similarly in HyperDent/Mill Box)
+
+1. **Open Your Arch Design**
+   - Load patient scan + opposing + construction info
+
+2. **Identify Implant Interfaces**
+   - Go to: **Part Features > Implant Interface**
+   - Click **Select All** → All screw channels highlight **yellow**
+
+3. **Replace Screw Geometry**
+   - In the **External Tab**, click the **folder icon**
+   - Navigate to:  
+     `Library > CAM Geometries > Badger Screw > Universal MUA`
+   - Select the **Badger Screw** model
+   - Confirm: New screw = **yellow** | Old screw = **gray**
+
+4. **Verify Fit**
+   - Zoom in: Confirm **Badger Screw head (2mm)** is fully seated
+   - No overlap with prosthetic anatomy
+   - Screw channel diameter = **2.04 mm**
+
+5. **Apply Printer Offset**
+   - In library settings: Enter your **calibration offset** (e.g., 0.1 mm)
+   - Software auto-compensates during export
+
+---
+
+## 4. PREPARING BADGER SCREW VERIFICATION BLOCKS FOR PRINTING
+
+1. **Export STL**
+   - File > Export > **Verification Block STL**
+
+2. **Open in Slicer (e.g., ChiTuBox, Lychee, PreForm)**
+   - Drag and drop the STL
+
+3. **Orient Correctly**
+   - Look for **"FLAT" label on top surface**
+   - **Rotate 180°** so **FLAT side is on build plate**
+   - Confirm: No supports needed in screw channels
+
+4. **Add Supports (Standard Settings)**
+   - Medium density
+   - Avoid screw channels and critical surfaces
+
+5. **Slice & Print**
+   - Use validated resin (e.g., Formlabs Surgical Guide, NextDent C&B)
+   - Post-cure per resin specs
+
+---
+
+## 5. MILLING BADGER SCREW ARCHES (HYPERDENT / MILL BOX)
+
+- After replacing screw geometry in CAD:
+  - Export **construction info + arch STL**
+  - Open in **HyperDent** or **Mill Box**
+  - Toolpath will automatically use **Badger Screw library**
+  - Use **1.0 mm end mill** for screw channels
+  - Confirm **no collisions** in simulation
+
+---
+
+## 6. TROUBLESHOOTING & BEST PRACTICES
+
+| Issue | Solution |
+|------|----------|
+Issue | Screw channel too tight 
+Solution| Increase **printer offset** by +0.05 mm |
+Issue | Screw head not seating 
+Solution| Verify **Universal MUA** selected (not Nobel/Straumann) |
+Issue | Supports in screw channel 
+Solution| Re-orient block with **FLAT side down** |
+Issue | Angled channels failing 
+Solution| Confirm mill has **T-cutter**; otherwise, keep channels **straight** |
+
+---
+
+## QUICK SUMMARY
+
+1. **Download + Calibrate** → Print & measure calibration block
+2. **Import Library** → Set offset in CAD
+3. **Replace Screw** → Select Badger Screw in implant interface
+4. **Export & Print** → Rotate FLAT side down, add supports
+5. **Mill** → Use 1.0 mm tool, verify simulation
+
+---
+
+**Support**: info@smartmouthtechnologies.com  
+**Downloads**: https://smartmouthtechnologies.com/downloads  
+**Video Tutorial**: [Link in Resource Center]
+
+---
+SmartMouth Technologies | Innovating Full Arch Restorations

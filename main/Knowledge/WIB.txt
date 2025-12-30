@@ -1,0 +1,42 @@
+WIB Software FAQ
+Product Goal
+A browser-based Finite Element Analysis (FEA) tool that gives full-arch designers pre-manufacturing confidence in structural integrity.
+
+Color-coded 3D results instantly highlight weak zones
+360° interactive viewer for detailed inspection
+
+What is FEA?
+A proven engineering method that:
+
+Divides the prosthetic into thousands of tiny triangles (nodes)
+Applies real-world forces to each node
+Predicts stress, strain, and failure points
+
+Software Requirements
+
+Platform: Any modern browser (desktop or mobile)
+Token system: Purchased via website
+Mobile capability: View (but not run) simulations on phones/tablets
+
+Token Pricing & Usage
+
+Cost per token: $7.25
+Tokens per case: 10
+Simulations per case: 6 (different load scenarios)
+
+Upload Requirements
+Double-Arch Cases
+
+Designed prosthetics aligned in occlusion
+Construction info exported from CAD software
+
+Single-Arch Cases
+
+Designed prosthetic
+Opposing jaw scan aligned in occlusion
+Construction info exported from CAD software
+
+Q: Where do I access results?
+A: Click the WIB Portal button on our website
+Q: Is patient data secure (HIPAA)?
+A: All patient information is encrypted and scrambled immediately upon entry

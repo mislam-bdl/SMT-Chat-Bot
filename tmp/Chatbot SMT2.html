@@ -1,0 +1,343 @@
+<style>
+    :root{--pri:#d40078;--pri-dark:#b80066;--light:#f8f9fa;--acc:#ff4da6;}
+    body{font-family:Segoe UI,sans-serif;margin:0;}
+    #floater{
+        position:fixed;bottom:100px;right:30px;
+        background:var(--pri);color:#fff;padding:10px 18px;
+        border-radius:30px;font-size:14px;font-weight:500;
+        box-shadow:0 4px 15px rgba(212,0,120,.4);
+        animation:float 3s infinite ease-in-out;z-index:99998;
+        pointer-events:none;opacity:0;transition:opacity .5s;
+    }
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+    #toggle{
+        position:fixed;bottom:20px;right:20px;width:60px;height:60px;
+        background:var(--pri);color:#fff;border-radius:50%;
+        display:flex;align-items:center;justify-content:center;
+        font-size:28px;cursor:pointer;box-shadow:0 6px 20px rgba(212,0,120,.5);
+        z-index:99999;transition:.3s;
+    }
+    #toggle:hover{transform:scale(1.1)}
+    #chat{
+        position:fixed;bottom:20px;right:20px;width:380px;max-width:90vw;
+        background:#fff;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,.2);
+        z-index:99999;overflow:hidden;display:none;flex-direction:column;
+    }
+    #chat.open{display:flex}
+    .hdr{
+        background:linear-gradient(135deg,var(--pri),var(--acc));
+        color:#fff;padding:16px;font-weight:600;font-size:18px;
+        text-align:center;position:relative;
+    }
+    .cls{
+        position:absolute;right:12px;top:12px;background:none;
+        border:none;color:#fff;font-size:24px;cursor:pointer;
+    }
+    .body{flex:1;max-height:500px;overflow-y:auto;padding:16px;background:#fff;}
+    .btn{
+        display:block;width:100%;padding:14px;margin:8px 0;
+        background:var(--light);border:2px solid #eee;border-radius:12px;
+        text-align:left;font-size:15px;cursor:pointer;transition:.2s;
+    }
+    .btn:hover{background:#fdf2f8;border-color:var(--pri);transform:translateX(4px)}
+    .btn.main{background:var(--pri);color:#fff;font-weight:600;border:none}
+    .btn.main:hover{background:var(--pri-dark)}
+    .prod{
+        background:#f0e6ff;padding:12px;border-radius:10px;
+        margin:10px 0;font-size:14px;border-left:4px solid var(--pri);
+    }
+    .qty-box{
+        display:flex;align-items:center;margin:10px 0;
+        background:#fff;border:2px solid #ddd;border-radius:10px;
+        overflow:hidden;width:130px;
+    }
+    .qty-btn{
+        background:#eee;color:#333;border:none;width:40px;height:40px;
+        font-size:22px;font-weight:bold;cursor:pointer;transition:.2s;
+    }
+    .qty-btn:hover{background:#d40078;color:#fff}
+    .qty-input{
+        width:50px;text-align:center;border:none;font-size:16px;
+        padding:10px 0;outline:none;font-weight:600;
+    }
+    .summary{font-weight:600;color:#333;margin:12px 0 8px;}
+    .confirm-box{background:#fff9e6;padding:14px;border-radius:12px;border:2px solid #ffcc00;margin:12px 0;}
+</style>
+
+<!-- Floating Message -->
+<div id="floater"></div>
+
+<!-- Toggle Button -->
+<div id="toggle">Chat</div>
+
+<!-- Chatbot -->
+<div id="chat">
+    <div class="hdr">Smart Mouth Chat Bot<button class="cls">x</button></div>
+    <div class="body" id="chatBody"></div>
+</div>
+
+<script>
+// === YOUR WORKING PRODUCT URLS ===
+const productURLs = {
+    "Badger Screw Starter Pack": "https://smartmouthtechnologies.com/?add-to-cart=2103&quantity=",
+    "Badger Screw": "https://smartmouthtechnologies.com/?add-to-cart=1320&quantity=",
+    "Long Straight": "https://smartmouthtechnologies.com/?add-to-cart=1986&quantity=",
+    "Long Angled": "https://smartmouthtechnologies.com/?add-to-cart=1993&quantity=",
+    "Short Straight": "https://smartmouthtechnologies.com/?add-to-cart=2042&quantity=",
+    "Short Angled": "https://smartmouthtechnologies.com/?add-to-cart=2039&quantity=",
+    "Crown Catcher": "https://smartmouthtechnologies.com/shop",
+    "Beacon Body": "https://smartmouthtechnologies.com/?add-to-cart=1147&quantity="
+};
+
+// === PRICE MAP ===
+const priceMap = {
+
+    "Badger Screw Starter Pack": 2316.00,
+    "Badger Screw": 180.00,
+    "Long Straight": 179.00,
+    "Long Angled": 79.00,
+    "Short Straight": 179.00,
+    "Short Angled": 79.00,
+    "Crown Catcher": 10.00,
+    "Beacon Body": 480.00
+};
+
+// === STATE ===
+let state = {
+    step: 'main',
+    product: null,
+    driverLength: null,
+    driverAngle: null,
+    quantity: 1,
+    delivery: null
+};
+
+// === DOM ===
+const chatBody = document.getElementById('chatBody');
+const chat = document.getElementById('chat');
+const toggle = document.getElementById('toggle');
+const close = document.querySelector('.cls');
+const floater = document.getElementById('floater');
+
+toggle.onclick = () => { chat.classList.add('open'); render(); };
+close.onclick = () => { chat.classList.remove('open'); };
+
+// === FLOATING MESSAGES ===
+const msgs = ["New AI Assistant!", "I can take care of your order", "Ask about WIB or Badger Screw"];
+let i = 0;
+function showFloat(){floater.textContent=msgs[i];floater.style.opacity=1;
+    setTimeout(()=>{floater.style.opacity=0},3000);i=(i+1)%msgs.length;}
+setInterval(showFloat,5000);showFloat();
+
+// === RENDER ===
+function render() {
+    chatBody.innerHTML = '';
+    if (state.step === 'main') showMainMenu();
+    else if (state.step === 'product') showProductMenu();
+    else if (state.step === 'driverLength') showDriverLength();
+    else if (state.step === 'driverAngle') showDriverAngle();
+    else if (state.step === 'delivery') showDelivery();
+    else if (state.step === 'summary') showSummary();
+    else if (state.step === 'confirm') showConfirm();
+    else if (state.step === 'immediate') showImmediate();
+}
+
+// === MAIN MENU ===
+function showMainMenu() {
+    chatBody.innerHTML = `
+        <button class="btn main" onclick="goTo('product')">Orders</button>
+        <button class="btn main" onclick="showInfo('Compatibility')">Compatibility</button>
+        <button class="btn main" onclick="showInfo('Questions')">Questions</button>
+        <button class="btn main" onclick="connectAgent()">Connect to Agent</button>
+    `;
+}
+
+// === PRODUCT MENU ===
+function showProductMenu() {
+    chatBody.innerHTML = `
+        <button class="btn prod" onclick="selectProduct('Badger Screw Starter Pack')">Starter Pack</button>
+        <button class="btn prod" onclick="selectProduct('Badger Screw')">Badger Screw (10 per pack)</button>
+        <button class="btn prod" onclick="goTo('driverLength')">Drivers</button>
+        <button class="btn prod" onclick="selectProduct('Beacon Body')">Beacon Body (6 per pack)</button>
+        <button class="btn prod" onclick="selectProduct('Crown Catcher')">Crown Catcher</button>
+        <button class="btn" onclick="goTo('main')">Back</button>
+    `;
+}
+
+// === DRIVER LENGTH ===
+function showDriverLength() {
+    chatBody.innerHTML = `
+        <div class="prod">Choose Driver Length</div>
+        <button class="btn" onclick="selectDriverLength('Long')">Long</button>
+        <button class="btn" onclick="selectDriverLength('Short')">Short</button>
+        <button class="btn" onclick="goTo('product')">Back</button>
+    `;
+}
+
+function selectDriverLength(len) {
+    state.driverLength = len;
+    goTo('driverAngle');
+}
+
+// === DRIVER ANGLE ===
+function showDriverAngle() {
+    chatBody.innerHTML = `
+        <div class="prod">Choose Angle</div>
+        <button class="btn" onclick="selectDriverAngle('Straight')">Straight</button>
+        <button class="btn" onclick="selectDriverAngle('Angled')">Angled</button>
+        <button class="btn" onclick="goTo('driverLength')">Back</button>
+    `;
+}
+
+function selectDriverAngle(angle) {
+    state.driverAngle = angle;
+    state.product = `${state.driverLength} ${angle}`;
+    goTo('delivery');
+}
+
+// === SELECT PRODUCT ===
+function selectProduct(name) {
+    state.product = name;
+    state.driverLength = null;
+    state.driverAngle = null;
+    goTo('delivery');
+}
+
+// === DELIVERY ===
+function showDelivery() {
+    chatBody.innerHTML = `
+        <div class="prod">Selected: <strong>${state.product}</strong></div>
+        <div class="summary">Choose Delivery</div>
+        <button class="btn" onclick="chooseDelivery('immediate')">Immediate (Overnight)</button>
+        <button class="btn" onclick="chooseDelivery('regular')">Regular (2–3 day)</button>
+        <button class="btn" onclick="goTo(state.driverLength ? 'driverAngle' : 'product')">Back</button>
+    `;
+}
+
+function chooseDelivery(type) {
+    state.delivery = type;
+    if (type === 'immediate') goTo('immediate');
+    else goTo('summary');
+}
+
+// === IMMEDIATE ===
+function showImmediate() {
+    chatBody.innerHTML = `
+        <div class="prod">Agent will contact you ASAP for overnight delivery.</div>
+        <button class="btn main" onclick="restart()">New Order</button>
+    `;
+}
+
+// === SUMMARY ===
+function showSummary() {
+    const price = priceMap[state.product] || 0;
+    const total = price * state.quantity;
+
+    chatBody.innerHTML = `
+        <div class="summary">Order Summary</div>
+        <div class="prod">
+            <strong>${state.product}</strong><br>
+            Unit Price: $${price.toFixed(2)}
+        </div>
+        <div style="margin:12px 0;">
+            <label><strong>Quantity:</strong></label>
+            <div class="qty-box">
+                <button class="qty-btn" onclick="changeQty(-1)">−</button>
+                <input type="number" class="qty-input" id="qtyInput" value="${state.quantity}" min="1">
+                <button class="qty-btn" onclick="changeQty(1)">+</button>
+            </div>
+        </div>
+        <div class="prod">
+            <strong>Total: $${total.toFixed(2)}</strong>
+        </div>
+        <button class="btn main" onclick="goTo('confirm')">Order Now</button>
+        <button class="btn" onclick="goTo('delivery')">Back</button>
+    `;
+
+    document.getElementById('qtyInput').onchange = (e) => {
+        let val = parseInt(e.target.value);
+        if (isNaN(val) || val < 1) val = 1;
+        state.quantity = val;
+        render();
+    };
+}
+
+function changeQty(delta) {
+    state.quantity = Math.max(1, state.quantity + delta);
+    render();
+}
+
+// === CONFIRM ===
+function showConfirm() {
+    const price = priceMap[state.product] || 0;
+    const total = price * state.quantity;
+
+    chatBody.innerHTML = `
+        <div class="confirm-box">
+            <strong>Confirm Your Order</strong><br><br>
+            <strong>Product:</strong> ${state.product}<br>
+            <strong>Quantity:</strong> ${state.quantity}<br>
+            <strong>Total:</strong> $${total.toFixed(2)}<br><br>
+            <em>Click Confirm to add to cart.</em>
+        </div>
+        <button class="btn main" onclick="addToCart()">Confirm</button>
+        <button class="btn" onclick="goTo('summary')">Back</button>
+    `;
+}
+
+// === ADD TO CART - DIRECT REDIRECT ===
+
+function addToCart() {
+    const baseURL = productURLs[state.product];
+    if (!baseURL) {
+        alert("Product not available.");
+        return;
+    }
+
+    const qty = state.quantity;
+    const addToCartURL = baseURL + qty;
+    const checkoutURL   = "https://smartmouthtechnologies.com/checkout/";
+
+    // 1. Open checkout in a **new tab** (user sees it instantly)
+    const checkoutTab = window.open(checkoutURL, '_blank');
+    
+    // 2. Add the product in the **current** tab (keeps the session)
+    window.location.href = addToCartURL;
+
+    // 3. After a short delay, bring the checkout tab to the front
+    setTimeout(() => {
+        if (checkoutTab) checkoutTab.focus();
+    }, 1200);
+}
+
+// === NAVIGATION ===
+function goTo(step) {
+    state.step = step;
+    render();
+}
+
+function restart() {
+    state = { step: 'main', product: null, driverLength: null, driverAngle: null, quantity: 1, delivery: null };
+    render();
+}
+
+// === INFO PANELS ===
+function showInfo(title) {
+    const info = {
+        "Compatibility": "Compatible with 20+ MUAs: 3i®, Adin®, Astra®, Biohorizons®, Nobel Biocare®, Straumann® and more.<br>Badger Screw: M1.4 thread, 0.048″ hex driver.",
+        "Questions": "WIB: 10 tokens = 1 case (6 simulations)<br>Badger Screw: 136N clamping force<br>Sterilization: Autoclave safe"
+    };
+    chatBody.innerHTML = `<div class="prod">${info[title]}</div>
+        <button class="btn main" onclick="restart()">Back to Menu</button>`;
+}
+
+function connectAgent() {
+    chatBody.innerHTML = `<div class="prod">Connecting to agent...</div>`;
+    setTimeout(() => {
+        window.location = 'mailto:info@smartmouthtechnologies.com?subject=Chat%20Support';
+    }, 1500);
+}
+
+// === START ===
+render();
+</script>

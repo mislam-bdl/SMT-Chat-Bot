@@ -1,0 +1,10 @@
+SCANBODY_ANSWER
+# SCANBODY / SCAN BODY (catch every spelling)
+scanbody|scan body|scan-body|scanbodies|scan bodies|which scanbody|what scanbody|dess scanbody|imetric|icam|micron mapper|photogrammetry|3shape|scan body not showing
+
+
+We have a number of scanbodies available in our Exocad Libraries.
+Download latest libraries: https://smartmouthtechnologies.com/libraries
+However, we are more than happy to incorporate and add whatever scan body you currently use.
+Kindly contact us at info@smartmouthtechnologies.com
+Note: Not currently integrated to 3Shape. We are working on it

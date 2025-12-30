@@ -1,0 +1,218 @@
+# SCANBODY / SCAN BODY (catch every spelling)
+scanbody|scan body|scan-body|scanbodies|scan bodies|which scanbody|what scanbody|dess scanbody|imetric|icam|micron mapper|photogrammetry|3shape|scan body not showing
+Yes – we have many scan bodies in our Exocad libraries (DESS, iMetric iCAM MU-RP 1.4 gray cylinders, Neodent, etc.).
+
+Download latest libraries: https://smartmouthtechnologies.com/libraries
+
+If your exact scan body is missing → reply with manufacturer + part number and we will add it.
+
+Note: Not integrated with 3Shape yet (working on it).
+NOTE: Most printers require a 0.1 mm offset. Most problems pertaining to screw fit (tight or too loose) is for offset.
+
+For immediate help: info@smartmouthtechnologies.com
+
+# TITANIUM BARS
+titanium bar|titanium bars|milling titanium
+We are still validating titanium toolpaths with HyperDENT.  
+It is definitely possible to mill Badger screw seats in titanium — many labs are already doing it successfully — we just haven’t released the official HyperDENT strategy yet.
+
+# ROSEN SCREW
+rosen screw
+Yes! The Badger Screw is a direct-to-MUA screw exactly like the Rosen screw.  
+It is designed for 3D printed, PMMA, and zirconia prostheses.
+
+# 3D PRINTED PROSTHETICS / SPRINTRAY / S.I.N
+sprintray|sprint ray|sin screws|3d printed prosthetics
+The Badger Screw works perfectly with 3D printed prosthetics!  
+Because every printer/resin combo prints slightly differently, we created printer verification blocks so you can dial in the perfect screw-channel offset for your specific setup.
+
+# ANGLE CORRECTION / PERMANENT
+permanent screw|angle correction|how much angle
+Yes — these are permanent screws designed for zirconia.  
+Maximum angle correction: 18 degrees.
+
+# TORQUE / ANGLED CHANNEL / CHEAP DRIVER
+torque|angled channel|cheap driver|dess driver
+Recommended torque:  
+• 15 Ncm → resin / PMMA  
+• 20 Ncm → zirconia  
+
+Protocol for angled channels (>10°):  
+1. Start with straight driver → engage threads  
+2. Finish with angled ball-end driver  
+
+Cheap straight driver option: DESS 0.048" / 1.2 mm hex driver works perfectly.
+
+# NEODENT MUA
+neodent|universal mua
+Yes — always use the “Badger Universal MUA” in Exocad when designing for Neodent MUAs.
+
+# MICRON MAPPER
+micron mapper
+Yes — our Exocad libraries include most common healing caps.  
+Export the implant positions from Micron Mapper into the matching healing caps → perfect alignment.
+
+
+
+Q,. Hello, am I able to use the Badger screws on titanium bars?
+
+A,. We are still working with HyperDENT on validating titanium toolpaths.
+
+Now this is not to say that you cannot be successful milling the Badger screw seat in titanium, just that we have not fully fleshed out the strategies with HyperDENT as of yet. 
+
+
+Q.I would like to know whether these screws are like The Rosen Screw( where we torque the Zirconia prosthesis directly on the Multi Unit Abutments)?
+
+A. Yes, the Badger Screw is a direct to MUA screw and shares the same application as the Rosen screw. The Badger Screw is designed to secure 3D printed, PMMA, and Zirconia prosthesis. 
+
+Q. Hello,Im looking into using your screws for our 3D printed prosthetics. We currently use Sprint ray and S.I.N screws to seat all of our prosthetics .I need to know if your screws are compatible with what we are using?
+
+A. The Badger Screw will absolutely work well for 3D printed prosthetics!
+We know that every 3D printer and resin combination will print geometries slightly different. To account for this, we have created printer verification blocks so you will be able to know exactly how your printer is performing. 
+
+Q. I would like to know if these libraries are compatible with the micron mapper?
+A. Yes our Exocad libraries have most of the commonly used healing caps.  Export the implant data from Micronmapper into the healing caps you used during the surgery.  This healing cap data will be used to align
+
+
+Q. Is your angled 0.048" hex driver compatible with anything else on the market?
+A.Here are few things that come to mind (not a complete list) that are compatible with an 0.048 hex ASC:
+
+DESS final screws for Osstem/Hiossen platforms 
+Inclusive® Multi-Unit Prosthetic Screw (.048" Hex) — Glidewell/Prismatik 
+IPD Scan Bodies
+Zimvie implant screws
+MegaGen (AnyRidge / AnyOne)
+Keystone Dental 
+Neobiotech / DIO / 3i compatible 
+Dynamic Abutment Solutions (DAS) 
+
+Happy to answer any questions about the Badger Screw as well. 
+
+Q. Which scanbody can i use to work with badger?
+
+A. We have a number of scanbodies available in our Exocad Libraries. An easy way to check is to download our Libraries and browse which scanbodies are in there. Off the top of my head, I know we have popular ones like the iCAM Reference cylinders, various Dess scan bodies and healing caps, Neodent Mini Conical 108.214, etc.
+Currently we are integrated with the iMetric iCAM MU-RP 1.4 Reference bodies (the gray cylindrical ones). However, we are more than happy to incorporate and add whatever scan body you currently use.
+ 
+Not currently integrated to 3Shape. We are working on it
+
+Kindly contact us at info@smartmouthtechnologies.com
+ 
+
+Q.Hello, I have some questions about your screw libraries for Exocad. If a doctor scans the implants using DESS IO scan bodies, can we convert this to a design using your Badger screw libraries? Or do you recommend a different IO scan body?
+
+A. We have many Dess scan bodies already available in both our Regular and 3D Printing Libraries. I would suggest downloading a library and verifying that the specific scan body that you are looking for is located in the library. If you cannot find it, I would be happy to add it to the libraries. I may need some additional information from you regarding the scan body, but we can cross that bridge when we get there! 
+
+Q. when designing/ milling for Neodent MUAs, we should choose the Bager universal MUA, right?
+
+A.Yes, that is correct. You are going to want to design with the Badger Universal MUA.
+
+Q. are these meant to be permanent screws?
+is there any amount of angle correction available when using these screws?
+
+A.Yes, these are permanent screws that are designed for zirconia.  The Badger Screw can be angle corrected up to 18 degrees.  Hope this is helpful and let me know if you have any questions.
+
+Q. I attached the scans, unfortunately I wasn't able to align the files of the prosthesis that we need to mill. I still include them in the scan and I also attached them separately . Hopefully you will be able to align them using Exocad.
+Please let me know if you were able to use the scans. If not, I will contact 3Shape tomorrow for assistance, maybe there is workaround.
+
+A. Kindly contact us at info@smartmouthtechnologies.com
+
+
+Q. How to use badger angled channel ? recommended torque ? any driver that is cheap ?
+A. I use the straight driver most of the time.  The angled ball hex driver is required when screw channels are angled more than around 10 degrees to properly torque the badger screws.  I use the straight drivers to deliver the screws to the angled access holes and given them a few turns to engage the threads.  Then finish the final torque with the angled driver.  For straight screw channels which is the vast majority of screw channels straight obviously works fine and no need to switch.  Because a straight driver is always going to be better at retaining the screw than a ball driver that’s why I always start with a straight driver the deliver the screw to the access hole intraorally to get the screw started first and then switch to the angled ball driver to tighten the screw to 15-20Ncm of torque.  Here’s the protocol I use when delivering a badger screw into an angled screw channel intraorally.
+1) put the badger screw on a straight driver
+2) place into the access hole and give it a couple of turns until the screw engages the threads of the MUA
+3) remove the straight driver from the hole
+4) finishes places all the badger screws for straight channels snug them down to about 10Ncm
+5) switch to angled ball driver and torque all the screws down in a star pattern to 15Ncm for polymers (resin or PMMA) and 20Ncm for zirconia.  
+6) fill with PTFE tape and fill last 2mm with ClipFlow and light cure for 10sec.  
+For a cheaper straight driver option I use the Dess 1.2mm/0.48” hex driver.  I’ll text you a link.
+
+
+Q. GOOD PRACTICE FOR GOOD FIT 
+
+
+Here is some important information to help make sure things go smoothly for Badger cases. 
+
+3D Printing: 3D Printing Library - Smart Mouth Technologies
+
+Important steps for 3D Printing with the Badger Screw
+Print the 3D Printing Calibration Block located in the link above. Follow the video instructions in link above titled "Badger Screw Printing Block in Slicer" on best practices. 
+Clean print well and post process as you would any normal arch. 
+Once print is clean and fully cured, it is time to find out what screw channel fit is best for your printer/resin combination. Video instructions in link above titled "Badger Screw Printing Block Overview"
+Take a Badger Screw on the head of a driver and insert it into the screw channel with the Badger Logo under it. Then, fasten the screw onto a lab analog until snug. 
+Inspect where the head of the screw matches up to the calibration line on the Calibration Block. 
+If the screw is sitting too deep, that means you need a tighter offset and should move to a screw channel with a minus sign under it. If the screw is sitting too high, that means you need a looser offset and should move to a screw channel with a plus sign under it. 
+Continue moving up or down in offsets until you can identify which offset gives you the proper fit. The video is very helpful for determining which offset is the right one. 
+Once the proper offset is identified, be sure to note that number (i.e. -0.1, +0.05, etc.). I recommend writing the offset on a piece of tape and sticking it on the printer. Ensure everyone in the office knows which printer requires which offset.
+Important: Now that you have identified the proper offset, you must relay that information to your designer/lab. 
+Something along the lines of "Hey for all of the 3D Printed cases that we do, we need the design to be adjusted using the +0.05 Badger Screw offset from the Badger Screw 3D Printing Library"
+Equally important: When you move to milled protos/finals, you will want to have your designer/lab redesign the case so that it has no offset. This is easily done by using the Standard Badger Screw Exocad Library noted below. 
+
+
+
+
+Standard Badger Screw Exocad Library: Libraries - Smart Mouth Technologies
+
+ 
+Q. Milling question ?
+
+Milling Integration (hyperDENT, MillBox, etc.): 
+We have walkthroughs on getting integrated with hyperDENT and MillBox located on our libraries page here. I would still recommend reaching out to your distributor and asking about integration with the Badger Screw, they will help make sure your system is up to date.
+If you utilize other milling programs, let us know and we can help. 
+
+Q. Scanbody or Scan Body identification help ?
+
+
+Photogrammetry Integration (iCAM, Micron Mapper, etc.): 
+Contact your distributor/service representative and request that your software is updated with the latest Badger Screw geometries. There is a possibility that it already is up to date but it doesn't hurt to check. 
+If you are unfamiliar with switching geometries in iMetric or Micron Mapper softwares, have your rep run you through a crash course. It should be relatively simple for them to show you.
+
+If you or your staff have any questions, please do not hesitate to reach out. 
+
+
+
+contact us at info@smartmouthtechnologies.com
+for additional instruction 
+
+Q. Scan Body not showing up in the software Exocad ?
+
+We have a number of scanbodies available in our Exocad Libraries.
+Currently we are integrated with the iMetric iCAM MU-RP 1.4 Reference bodies (the gray cylindrical ones). 
+However, we are more than happy to incorporate and add whatever scan body you currently use.
+
+Kindly contact us at info@smartmouthtechnologies.com
+ 
+Note: Not currently integrated to 3Shape. We are working on it
+
+Q. Scan body not showing up   ?
+
+We have a number of scanbodies available in our Exocad Libraries.
+Currently we are integrated with the iMetric iCAM MU-RP 1.4 Reference bodies (the gray cylindrical ones). 
+However, we are more than happy to incorporate and add whatever scan body you currently use.
+
+Kindly contact us at info@smartmouthtechnologies.com
+ 
+Note: Not currently integrated to 3Shape. We are working on it
+
+
+Q. Scan body is problamatic  ?
+
+We have a number of scanbodies available in our Exocad Libraries.
+Currently we are integrated with the iMetric iCAM MU-RP 1.4 Reference bodies (the gray cylindrical ones). 
+However, we are more than happy to incorporate and add whatever scan body you currently use.
+
+Kindly contact us at info@smartmouthtechnologies.com
+ 
+Note: Not currently integrated to 3Shape. We are working on it
+
+
+Q. Scan Body not properly visible ?
+
+We have a number of scanbodies available in our Exocad Libraries.
+Currently we are integrated with the iMetric iCAM MU-RP 1.4 Reference bodies (the gray cylindrical ones). 
+However, we are more than happy to incorporate and add whatever scan body you currently use.
+
+Kindly contact us at info@smartmouthtechnologies.com
+ 
+Note: Not currently integrated to 3Shape. We are working on it
+

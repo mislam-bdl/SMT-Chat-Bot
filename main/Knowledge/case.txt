@@ -1,0 +1,136 @@
+
+NOTE: Most printers require a 0.1 mm offset. Most problems pertaining to screw fit (tight or too loose) is for offset.
+Badger Screw Exocad Help:
+
+Issue: the access channel in a 3D printed prototype was too narrow for their 1.4 mm Badger screws, which have a 2.0 mm head.
+
+Cause: The lab used the milling library in Exocad instead of the 3D printing library, which is better suited for printing and includes offset options to accommodate printer variability.
+Solution:
+
+Switch to the 3D printing library from Smart Mouth Technologies: Library Link
+Use the offset dropdown in Exocad (typically 0.1 mm works best).
+Print a calibration block to determine the ideal offset for your printer.
+Share the correct offset with your designer for future cases.
+
+
+Resources Provided:
+
+Printing the calibration block
+Checking the offset
+Using the 3D library
+
+
+Additional Note: Smart Mouth Technologies is collaborating with Conmetior and plans to release a reamer soon. [Fw: Badger...xocad Help | Outlook]
+
+
+Badger Study":
+
+Topic: Calibration and printing accuracy for Badger Screws in dental prosthetics.
+Question: How to ensure perfect fit in Formlabs 4B printer.?
+Key Points:
+
+New Smile Columbus is printing in-office using a Formlabs 4B printer.
+They tested screw channel offsets and found values between +0.05 mm and +0.1 mm, with 0.05 mm at the top of the line and 0.1 mm in the middle.
+we recommend using a 0.1 mm offset, which is typical for most printers.
+A calibration block should be printed to determine the correct offset for accurate screw channel dimensions.
+The offset value should be communicated to the lab so it can be incorporated into the design.
+For final prosthetics, the Exocad library should be used without offsets.
+
+
+Inquiry: Requested information about bulk pricing for Badger Screws and digital libraries to support them.
+Response from Smart Mouth Technologies:
+
+Shared links to their milling and 3D printing design libraries:
+
+Milling Library
+3D Printing Library
+
+
+
+
+Follow-up:
+
+They use Sprintray printers.
+Smart Mouth Technologies recommended using a 3D Printing Calibration Block to ensure accurate screw channel printing.
+Most printers require a 0.1 mm offset, which should be communicated to the designer.
+
+
+
+"Website Contact Us Form":
+
+
+
+Issue: He ordered two bags of screws and used them for a patient case, but the exocad library didn’t work properly—the screw access holes were too narrow for the screw heads.
+
+
+Setup:
+
+Design was done by Hybridge implant lab
+Printed using Onyx2 resin on a Sprintray Pro2 printer
+
+
+
+Problem: He had to manually widen the access holes, which led to guesswork.
+
+
+Question: Is this a design lab issue or a common problem when using exocad?
+
+
+Response from Smart Mouth Technologies:
+
+The issue is likely due to tight screw access channels caused by printer variability.
+They recommend using a 3D printing library and a calibration block to determine the correct offset for the printer.
+Once the offset is known, it should be shared with the designer to ensure proper fit.
+Resources provided:
+
+3D Printing Library
+Step-by-step videos and instructions
+Option to meet with a Smart Mouth Engineer or lab support
+
+
+Note: No offset is needed for milling; designers can use the exocad milling library.
+
+
+
+Key Points:
+
+
+Library Links Provided:
+
+Product Info
+Design Libraries
+
+
+
+Milling Software Compatibility:
+
+Hyperdent:
+
+Integrated with Badger
+For angled screw channels, only compatible with T-cutter enabled machines
+
+
+VHF:
+
+Requires offsets for proper milling
+Most users use +0.05 mm offset, but larger offsets are available
+A design library is attached to help determine the correct offset
+
+
+
+
+
+Exocad Instructions:
+
+Place the Badger 3D Printing Exocad Library in the “implant” folder
+Select the correct MUA/Badger Screw interface during design
+Instructional Video
+
+
+
+
+
+Q: Do you sell in UK or Canada or Mexico or Europe?
+
+A:
+Right now we only sell in the US. But we are working on going international

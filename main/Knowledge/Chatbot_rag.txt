@@ -1,0 +1,452 @@
+================================================================================
+SMART MOUTH TECHNOLOGIES - COMPLETE KNOWLEDGE BASE
+Consolidated for AI Chatbot (RAG Optimized)
+Last Updated: November 2025
+================================================================================
+
+COMPANY OVERVIEW
+================================================================================
+Company Name: Smart Mouth Technologies
+Founded: 2023
+Launch Year: 2025
+Mission: Combining engineering expertise with dental professionals to solve
+full-arch restoration problems including prosthetic breakage, excessive chair
+time, and inaccurate digital conversions.
+Website: https://smartmouthtechnologies.com/
+Email: info@smartmouthtechnologies.com
+Location: 770 Osterman Drive, Unit C, Bozeman, MT 59715, USA
+Social Media: Facebook and Instagram @smartmouthtech
+
+Pipeline: 5-6 new hardware and software products launching throughout 2025
+
+================================================================================
+MAIN PRODUCTS
+================================================================================
+
+PRODUCT 1: BADGER SCREW (Patent Pending)
+---
+What It Is: A revolutionary direct-to-MUA (multi-unit abutment) screw engineered
+for maximum clamping force with minimum prosthetic stress.
+
+Key Innovation: Radiused cupped clamping surface distributes load evenly around
+shaft and head, reducing lateral stress while maintaining high retention.
+
+Primary Use: Direct-to-MUA restorations only. NOT compatible with single-unit
+Ti-base restorations (incorrect thread pattern).
+
+BADGER SCREW SPECIFICATIONS
+---
+Head Diameter: 2.00 mm
+Screw-Channel Diameter: 2.04 mm
+Clamping Force: ~136 N (newtons)
+Screw-Channel Stress: ~35 MPa (megapascals)
+Driver Type: 0.048" hex (1.22 mm) - required due to reduced head size
+Contact Area: 4.5 mm² (optimized cupped design vs flat competitors)
+Material: Anodized finish for durability
+Thread Pattern: M1.4
+Angle Correction: Not available (rarely needed with smaller head design)
+Can Be Milled: Yes, with 1mm endmill
+
+BADGER SCREW PERFORMANCE vs COMPETITORS
+---
+Badger Screw Initial Clamping Force: ~330 N
+Badger Screw Settled Force: ~310 N
+
+Competitor Comparison (Settled Force):
+- Badger Screw: ~310 N (HIGHEST)
+- Competitor Screw #1: ~270 N
+- Competitor Screw #2: ~260 N
+- Competitor Screw #3: ~220 N
+- Competitor Screw #4: ~200 N
+- Competitor Screw #5: ~100 N (LOWEST)
+
+Contact Area Comparison:
+- Badger: 4.5 mm² with cupped seat pulls friction inward, higher clamping force
+- DESS: 2.2 mm² small contact area causes pressure spikes and higher stress
+- Vortex: 3.1-11 mm² flat wide seat, high friction, lower clamping force
+- Powerball: 4.2 mm² flat wide seat, high friction, lower clamping force
+- Rosen: 9.5 mm² large contact area, friction too high, consumes torque
+- Segscrew: Largest access hole weakens arch
+
+Key Insight: Badger's 4.5 mm² cupped design is optimized for friction distribution
+and stress dissipation, NOT largest contact area. Shape matters more than size.
+
+BADGER SCREW PRELOAD (CLAMPING FORCE) BEHAVIOR
+---
+In Zirconia Prosthesis: Force remains stable over time (~300-350 N after spike)
+In PMMA/Printed Resin: Force settles rapidly, can lose up to 100N in seconds
+
+Cyclic Loading Performance (Mouth Simulation - PMMA):
+- Badger 15 Ncm: Settles at ~273 N (maintains highest force)
+- Badger 20 Ncm: Settles at ~229 N
+- Popular Competitor 0.8mm 15 Ncm: Settles at ~195 N
+- Popular Competitor 1.4mm 15 Ncm: Settles at ~105 N
+
+RECOMMENDED TORQUE SPECIFICATIONS
+---
+For Printing (Resin/PMMA): 15 Ncm
+For Milling (PMMA): 15 Ncm
+For Milling (Zirconia): 20 Ncm
+Driver: 0.048" hex (1.2 mm)
+
+IMPORTANT: Badger tested at 35 Ncm shows NO permanent deformation. The "wedge
+effect" of angled screws is a MYTH - physical testing shows no wedging or
+splitting occurs.
+
+COMPATIBLE MUA BRANDS (20+ Major Implant Systems)
+---
+3i, Adin, Astra, BlueSkyBio, Biohorizons, Cortex, Dentsply, Dess, GenTek ZFX,
+Hiossen, Keystone, Megagen, Medentika IPS, Neodent, NobelBiocare, Noris, Osstem,
+Southern Implants, SRL, Straumann, Thommen Medical, ZFX, ZimVier
+
+Compatible CAD/CAM Design Libraries:
+- Exocad
+- 3Shape
+- Hyperdent
+- Millbox
+
+Supported Screw-Channel Geometries:
+- Badger
+- Powerball
+- Dess Long (1.4 mm thread)
+- Dess Short
+- Rosen
+
+BADGER SCREW PRICING
+---
+10 Pack: $180 per pack
+50 Pack: $1,140 (5% discount + 10 bonus tokens worth $132.50)
+100 Pack: $2,160 (10% discount + 10 bonus tokens worth $312.50)
+Bulk Orders: Call for custom pricing
+
+BADGER SCREW STARTER PACK (Best Value): $2,316.00
+Includes:
+- 10 Badger Screws
+- Long Angled Driver (1.2mm/0.048") 30mm
+- Long Straight Driver (1.2mm/0.048") 30mm
+- Short Angled Driver (1.2mm/0.048") 24mm
+- Short Straight Driver (1.2mm/0.048") 24mm
+
+Individual Driver Prices:
+- Long Angled Driver: $79.00
+- Long Straight Driver: $179.00
+- Short Angled Driver: $79.00
+- Short Straight Driver: $179.00
+
+---
+
+PRODUCT 2: BEACON SCAN BODY (Coming Soon - Patent Pending)
+---
+Status: Coming soon to market
+Purpose: Precision scan body for implant planning and digital conversions
+
+---
+
+PRODUCT 3: WILL IT BREAK (WIB) - BETA SOFTWARE
+---
+What It Is: AI-powered browser-based Finite Element Analysis (FEA) tool for
+full-arch prosthetic design analysis.
+
+Purpose: Identifies structural vulnerabilities in prosthetic designs to give
+dentists pre-manufacturing confidence in structural integrity.
+
+How It Works:
+1. Divides the prosthetic into thousands of tiny triangles (nodes)
+2. Applies real-world forces to each node
+3. Predicts stress, strain, and failure points
+4. Provides instant color-coded 3D results highlighting weak zones
+5. Includes 360° interactive viewer for detailed inspection
+
+Simulation Capabilities: Runs 6 different load scenarios (simulations) per case
+to identify common stress points
+
+Common Stress Points Found by WIB:
+- Cantilevers
+- Interproximal areas between teeth
+- MUA base transitions
+- Sharp geometric transitions
+
+Platform Requirements: Any modern browser (desktop or mobile)
+Mobile Use: Can view (but not run) simulations on phones/tablets
+
+WIB TOKEN SYSTEM
+---
+Cost Per Token: $7.25
+Tokens Required Per Case: 10 tokens
+Simulations Per Case: 6 different load scenarios
+
+Pricing Example:
+- 10 tokens = $72.50 (covers 1 full case with 6 simulations)
+- 50 tokens = $362.50 (5 cases)
+- 100 tokens = $725 (10 cases)
+
+Tokens can be purchased and stored for future use.
+
+WIB INPUT REQUIREMENTS
+---
+For Double-Arch Cases:
+- Designed prosthetics aligned in occlusion
+- Construction info exported from CAD software
+
+For Single-Arch Cases:
+- Designed prosthetic
+- Opposing jaw scan aligned in occlusion
+- Construction info exported from CAD software
+
+WIB FEATURES & ACCESS
+---
+Results Access: Click WIB Portal button on website at
+https://smartmouthtechnologies.com/
+Patient Data Security: All patient information is encrypted and scrambled
+immediately upon entry (HIPAA compliant)
+Status: BETA (not FDA-certified)
+
+IMPORTANT NOTE: WIB cannot guarantee outcomes due to variables outside design
+including manufacturing errors, implant positioning, installation technique,
+and patient habits.
+
+Limitations:
+- Not FDA-certified
+- Cannot support Ti-bar cases (limited to monolithic cases only)
+- Software identifies stress but cannot account for all real-world variables
+
+---
+
+BADGER SCREW DESIGN & SETUP GUIDES
+================================================================================
+
+3D PRINTING WITH BADGER SCREW (Exocad Workflow)
+---
+Step 1: Download & Install Library
+- Visit https://smartmouthtechnologies.com/libraries/
+- Download Badger Screw 3D Printing Library
+- Import into Exocad: File > Open Library > Select .elib file
+
+Step 2: Calibrate Your 3D Printer (REQUIRED)
+- Print the Badger Screw Calibration Block STL
+- Use standard resin and settings
+- Print flat on build plate
+- Measure X and Y diameters with digital caliper
+- Calculate offset: 
+- In most cases +0.1mm offset works
+
+NOTE: Most printers require a 0.1 mm offset.
+
+Step 3: Apply Calibration in CAD
+1. Open your arch design
+2. Go to Part Features > Implant Interface
+3. Click Select All (all screw channels highlight yellow)
+4. Click External Tab > folder icon
+5. Navigate to Library > CAM Geometries > Badger Screw > Universal MUA
+6. Select Badger Screw model
+7. Verify: New screw = yellow, old screw = gray
+8. Zoom in: Confirm Badger head (2mm) fully seated, no overlap with anatomy
+9. Enter calibration offset in library settings (e.g., 0.1mm)
+
+Step 4: Prepare Verification Block
+- Export STL: File > Export > Verification Block STL
+- Open in slicer (ChiTuBox, Lychee, PreForm)
+- Orient with FLAT label on top, rotate 180° so FLAT is on build plate
+- Add medium-density supports avoiding screw channels
+- Slice and print using validated resin
+
+MILLING BADGER SCREW ARCHES (Hyperdent/Mill Box)
+---
+Supported CAM Software:
+- Hyperdent (updated versions)
+- Mill Box (updated versions)
+
+Tools Required:
+- Ball endmills (can be used to mill Badger seat)
+- Flat endmills (can be used to mill Badger seat)
+- Bullnose endmills (can be used to mill Badger seat)
+- T-cutters for angled undercuts (1.4mm and 1.6mm sizes)
+
+IMPORTANT: If you can currently mill Powerball, DESS, or Vortex, YOU CAN MILL
+BADGER. Use 1.0mm endmill for screw channels. Ball, flat, or bullnose endmills
+all work for seat geometry.
+
+Milling Workflow:
+1. Replace screw geometry in CAD with Badger Screw
+2. Export construction info + arch STL
+3. Open in HyperDent or Mill Box
+4. Toolpath automatically uses Badger Screw library
+5. Use 1.0mm end mill for screw channels
+6. Verify no collisions in simulation
+7. Do NOT angle channels if your mill lacks T-cutters
+
+Milling Support: For integration help with your milling system, contact
+info@smartmouthtechnologies.com
+
+---
+
+TROUBLESHOOTING
+================================================================================
+
+Screw Channel Too Tight
+Solution: Increase printer offset by +0.05mm in calibration settings
+
+Screw Head Not Seating
+Solution: Verify "Universal MUA" is selected (not Nobel/Straumann specific)
+
+Supports in Screw Channel
+Solution: Re-orient block with FLAT side down before printing
+
+Angled Channels Failing
+Solution: Confirm mill has T-cutter capability. If not, keep channels straight.
+
+Design File Issues
+Solution: Download latest library from https://smartmouthtechnologies.com/libraries/
+
+CAD/CAM Integration Questions
+Solution: Contact info@smartmouthtechnologies.com for compatibility support
+
+---
+
+BADGER SCREW - WHY IT WORKS
+================================================================================
+
+Problem Statement: Today's screws focus on FEATURES (price, angle correction,
+height adjustability, color) instead of PERFORMANCE.
+
+The Badger Solution: Focuses on measurable PERFORMANCE metrics:
+- Access hole diameter (smaller = stronger prosthetic)
+- Preload/Clamping Force (higher = stays seated)
+- Bearing surface/screw seat stress (lower = longer lifespan)
+- Contact area (optimized, not largest)
+
+Badger Design Advantages:
+1. Small head (2.00mm) reduces access hole weakening prosthetic
+2. Cupped clamping surface (4.5mm² optimized area) pulls friction inward
+3. Radiused edges dissipate stress vs sharp corners that concentrate stress
+4. Vertical clamping priority reduces lateral stress
+5. High preload maintains prosthetic retention throughout prosthesis lifespan
+
+Why Preload Matters: Preload is the ONLY force keeping a full-arch prosthesis
+seated. When preload drops, prosthesis eventually loosens, screw backs out, and
+failure occurs. Badger maintains the highest preload among tested competitors.
+
+---
+
+RETURN & WARRANTY POLICIES
+================================================================================
+
+REFUND POLICY (30-Day Window)
+---
+Return Period: 30 days from date of purchase
+Contact: info@smartmouthtech.com
+Return Address: Smart Mouth Technologies, LLC, 770 Osterman Drive, Unit C,
+Bozeman, MT 59715, USA
+
+Eligibility Requirements:
+- Product is defective
+- Product not as described
+- Product unopened and in original, undamaged packaging
+- Product unused and in sellable condition
+
+Non-Eligible Items:
+- Digital downloads
+- Web application usage
+- Used or opened products
+
+Return Shipping: Customer pays for return shipping. Original shipping charges
+are non-refundable. Use trackable service (we cannot guarantee receipt).
+
+Refund Processing: Issued to original payment method. If product is damaged
+or used beyond inspection, refund may be rejected.
+
+International Returns: Customer pays all return shipping AND any customs duties
+or taxes.
+
+LIMITED WARRANTY (30 Days)
+---
+Warranty Duration: 30 days from purchase date
+Coverage: All component parts
+
+Covered Defects:
+- Defective materials
+- Workmanship defects
+
+Warranty Service:
+- Repair or replacement at Smart Mouth's discretion
+- No charge for parts or labor
+- Report defect within warranty period
+- Contact Smart Mouth directly
+
+Warranty Exclusions:
+- Parts not manufactured by Smart Mouth
+- Parts not provided at time of purchase
+- Normal wear and tear
+- Use with incompatible equipment
+- Damage from negligence or misuse
+- Damage from unauthorized repairs
+
+Customer Responsibilities:
+- Assume responsibility for damage due to normal wear and tear
+- Sole responsibility for damage from negligence or misuse
+- Sole responsibility for damage from accidents
+- Sole responsibility for work done by unauthorized parties
+
+Release of Claims: By using the product, purchaser accepts sole responsibility
+for personal injury or property damage. Purchaser releases all claims against
+Smart Mouth Technologies, its officers, directors, agents, and employees.
+
+For Warranty Questions: Contact info@smartmouthtech.com
+
+---
+
+QUICK FACTS & FAQ
+================================================================================
+
+Q: What makes Badger Screw different?
+A: Badger combines highest clamping force (~310N settled) with lowest prosthetic
+stress through optimized 4.5mm² cupped design. It's engineered for PERFORMANCE
+metrics, not features. Small 2mm head preserves prosthetic strength.
+
+Q: Is Badger compatible with my implant brand?
+A: Likely yes. Badger works with 20+ major systems including 3i, Astra,
+Biohorizons, NobelBiocare, Straumann, and many others. Check the full list or
+contact info@smartmouthtechnologies.com for compatibility confirmation.
+
+Q: What torque should I use?
+A: 15 Ncm for printing (PMMA/resin), 20 Ncm for milling zirconia. Badger tested
+at 35 Ncm with no permanent deformation.
+
+Q: Can I mill Badger if I already mill other screws?
+A: Yes. If you mill Powerball, DESS, or Vortex, you can mill Badger. Use 1.0mm
+endmill for channels. Ball, flat, or bullnose endmills work for seat.
+
+Q: Do I need a T-cutter for Badger?
+A: Only if you want angled screw channels. For straight channels, standard tools
+work. If mill lacks T-cutters, keep channels straight.
+
+Q: How do I download the Badger library?
+A: Visit https://smartmouthtechnologies.com/libraries/ and select your CAD software
+(Exocad, Hyperdent, or Mill Box).
+
+Q: Is WIB FDA-certified?
+A: No. WIB is BETA software that identifies stress points but cannot guarantee
+outcomes due to real-world variables outside design control.
+
+Q: What screw channels does Badger support?
+A: Badger, Powerball, DESS Long (1.4mm thread), DESS Short, and Rosen channel
+geometries.
+
+Q: What's the Badger Starter Pack?
+A: $2,316 value including 10 Badger Screws plus all 4 driver types (Long/Short,
+Straight/Angled). Best value for complete setup.
+
+Q: Is patient data in WIB secure?
+A: Yes. All patient information encrypted and scrambled immediately. HIPAA compliant.
+
+Q: Can I use Badger for single-unit restorations?
+A: No. Badger is engineered for direct-to-MUA (multi-unit abutment) use only.
+Different thread pattern than Ti-base single units.
+
+Q: Where can I get support?
+A: Email info@smartmouthtechnologies.com or visit
+https://smartmouthtechnologies.com/
+
+================================================================================
+END OF KNOWLEDGE BASE
+================================================================================

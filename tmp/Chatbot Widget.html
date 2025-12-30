@@ -1,0 +1,363 @@
+<!-- Chatbot Widget -->
+<div id="chatbot-container">
+  <div id="chatbot-header">🤖 Chat with us!</div>
+  <div id="chatbot-messages"></div>
+  <div id="chatbot-input">
+    <input type="text" id="user-input" placeholder="Type your message..." />
+    <button id="send-btn">Send</button>
+  </div>
+</div>
+
+<style>
+/* CSS styles are unchanged from the original input */
+#chatbot-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 300px;
+  height: 420px;
+  background: #fff;
+  border: 2px solid #0073aa;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: sans-serif;
+  z-index: 9999;
+}
+#chatbot-header {
+  background: #0073aa;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+}
+#chatbot-messages {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  font-size: 14px;
+}
+.message {
+  margin: 6px 0;
+  line-height: 1.4;
+}
+.bot {
+  color: #0073aa;
+}
+.user {
+  text-align: right;
+  color: #333;
+}
+#chatbot-input {
+  display: flex;
+  border-top: 1px solid #ddd;
+}
+#chatbot-input input {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  outline: none;
+}
+#chatbot-input button {
+  background: #0073aa;
+  color: white;
+  border: none;
+  padding: 0 12px;
+  cursor: pointer;
+}
+.option-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+.option-button {
+  flex: 1 1 45%;
+  text-align: center;
+  background: #e8f3fa;
+  border: 1px solid #0073aa;
+  color: #0073aa;
+  border-radius: 6px;
+  padding: 5px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.option-button:hover {
+  background: #0073aa;
+  color: white;
+}
+.order-now-btn {
+  display: inline-block;
+  background: #0073aa;
+  color: white;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+.order-now-btn:hover {
+  background: #005f87;
+}
+</style>
+
+<script>
+let orderState = null;
+let orderData = {};
+
+// === REAL PRODUCT LINKS FROM YOUR CSV (Post ID + add-to-cart) ===
+// === PRODUCT LINKS ===
+const productLinks = {
+  'starter_pack': "https://smartmouthtechnologies.com/?add-to-cart=2103&quantity=",
+  'badger_screw': "https://smartmouthtechnologies.com/?add-to-cart=1320&quantity=",
+  'hex_long_straight': "https://smartmouthtechnologies.com/?add-to-cart=1986&quantity=",
+  'hex_long_angled': "https://smartmouthtechnologies.com/?add-to-cart=1993&quantity=",
+  'hex_short_straight': "https://smartmouthtechnologies.com/?add-to-cart=2042&quantity=",
+  'hex_short_angled': "https://smartmouthtechnologies.com/?add-to-cart=2039&quantity=",
+  'crown_catcher': "https://smartmouthtechnologies.com/shop",
+  'beacon_body': "https://smartmouthtechnologies.com/?add-to-cart=1147&quantity=",
+  'others': "https://smartmouthtechnologies.com/shop"
+};
+
+// === PRODUCT PRICES ===
+const productPrices = {
+  'starter_pack': 2316.00,
+  'badger_screw': 180.00,     // 1-pack = $24 (Note: assuming 180.00 is correct for the link)
+  'beacon_body': 180.00,
+  'hex_long_straight': 179.00,
+  'hex_long_angled': 79.00,
+  'hex_short_straight': 179.00,
+  'hex_short_angled': 79.00,
+  'crown_catcher': 0,
+  'others': 0
+};
+
+const botMessages = {
+  greeting: "Hello! Welcome! What would you like help with today?",
+  order: "Sure! Please select a product you'd like to order:",
+  compatibility: "To check compatibility, please tell me your device or model name.",
+  questions: "Here are some frequently asked questions. Tap one to learn more:",
+  agent: "Connecting you to a live agent... (you can leave your email or phone here)",
+  unknown: "I'm not sure how to handle that request. Can you try using the options provided?"
+};
+
+// === FAQ DATA FROM YOUR DOCUMENT ===
+const faqData = [
+  {q: "What is the head diameter of the Badger Screw?", a: "2mm"},
+  {q: "What is the screw channel diameter?", a: "2.04mm"},
+  {q: "How much clamping force does the Badger Screw provide?", a: "~136N"},
+  {q: "What is the screw channel stress?", a: "~35 MPa"},
+  {q: "What driver is needed for the Badger Screw?", a: "0.048” (1.22mm) hex driver"},
+  {q: "Why a smaller screw head?", a: "Preserves prosthetic material and increases prosthetic strength. The shaft secures the prosthetic, allowing a smaller head."},
+  {q: "Can Badger Screws be used with Ti bases or single-unit restorations?", a: "Designed for <strong>direct to MUA</strong> only. Incorrect thread pattern for single-unit Ti base restorations."},
+  {q: "Is angle correction available?", a: "Not at this time. Not needed in most cases due to the smaller screw head."},
+  {q: "Which MUA brands are compatible with Badger Screws?", a: "3i®, Adin®, Astra®, BlueSkyBio®, Biohorizons®, Cortex®, Dentsply®, Dess®, GenTek ZFX®, Hiossen®, Keystone®, Megagen®, Medentika IPS®, Neodent®, NobelBiocare®, Noris®, Osstem®, Southern Implants®, SRL®, Straumann®, Thommen Medical®, ZFX®, ZimVie®"},
+  {q: "What design software supports Badger Screw libraries?", a: "Exocad, 3Shape, Hyperdent, Millbox"},
+  {q: "What milling tool is needed for screw channels?", a: "1mm endmill"},
+  {q: "What is WIB Software used for?", a: "Finite Element Analysis (FEA) to predict structural strength of full arch designs before manufacturing."},
+  {q: "How many tokens are needed per patient case in WIB?", a: "10 tokens per case (6 simulations included)"},
+  {q: "How much does a WIB token cost?", a: "$7.25 per token"},
+  {q: "What file types can be uploaded to WIB?", a: "<strong>Double Arch:</strong> Designed prosthetics + opposing scan in occlusion + construction info<br><strong>Single Arch:</strong> Prosthetic + opposing jaw scan + construction info"},
+  {q: "Is WIB Software FDA certified?", a: "No"},
+  {q: "Does WIB guarantee my arch won’t break?", a: "No. We cannot guarantee designs due to manufacturing errors, implant position, or installation issues."},
+  {q: "Where do common stress points occur in full arch designs?", a: "Cantilevers, between teeth, on MUA bases, and sharp geometry transitions"},
+  {q: "Where can I access WIB simulations?", a: "Via the <strong>WIB portal button</strong> on our website"},
+  {q: "Is patient data secure in WIB?", a: "Yes. All patient information is <strong>encrypted and scrambled</strong> upon entry (HIPAA compliant)"}
+];
+
+function addMessage(sender, text, html = false) {
+  const msgDiv = document.createElement('div');
+  msgDiv.classList.add('message', sender);
+  if (html) msgDiv.innerHTML = text;
+  else msgDiv.innerText = text;
+  document.getElementById('chatbot-messages').appendChild(msgDiv);
+  scrollToBottom();
+}
+
+function scrollToBottom() {
+  const chatBox = document.getElementById('chatbot-messages');
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+function showOptions(options, callback) {
+  const container = document.createElement('div');
+  container.classList.add('option-buttons');
+  options.forEach(opt => {
+    const btn = document.createElement('div');
+    btn.classList.add('option-button');
+    btn.innerHTML = opt.label;
+    btn.onclick = () => {
+      // container.remove(); // Removed for demo purposes so user can still see initial options
+      callback(opt.value);
+    };
+    container.appendChild(btn);
+  });
+  document.getElementById('chatbot-messages').appendChild(container);
+  scrollToBottom();
+}
+
+// === SLIDER FOR QUANTITY (Completed Function) ===
+function showQuantitySlider() {
+  const sliderHTML = `
+    <div id="quantity-slider-container" style="margin: 12px 0; padding: 10px; background: #f8f9fa; border-radius: 8px; text-align: center;">
+      <div style="margin-bottom: 8px; font-weight: bold;">Select Quantity</div>
+      <input type="range" id="qty-slider" min="1" max="100" value="1" style="width: 100%; accent-color: #0073aa;">
+      <div style="margin-top: 8px; font-size: 18px; font-weight: bold;" id="qty-value">1</div>
+      <button id="confirm-qty-btn" style="margin-top: 10px; background: #0073aa; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer;">Confirm</button>
+    </div>
+  `;
+  addMessage('bot', sliderHTML, true);
+
+  setTimeout(() => {
+    const slider = document.getElementById('qty-slider');
+    const valueDisplay = document.getElementById('qty-value');
+    const confirmBtn = document.getElementById('confirm-qty-btn');
+
+    if (slider && valueDisplay && confirmBtn) {
+      slider.oninput = function() {
+        valueDisplay.innerHTML = this.value;
+      }
+
+      confirmBtn.onclick = function() {
+        const quantity = slider.value;
+        document.getElementById('quantity-slider-container').remove();
+        handleQuantitySelection(quantity);
+      }
+    }
+  }, 0); // Use setTimeout to ensure elements are in the DOM before access
+}
+
+
+// === HANDLERS FOR CHAT LOGIC ===
+
+function handleInitialOptions(choice) {
+  addMessage('user', choice);
+  if (choice === 'Order Products') {
+    addMessage('bot', botMessages.order);
+    showOptions([
+      { label: 'Starter Pack', value: 'starter_pack' },
+      { label: 'Badger Screw (MUA)', value: 'badger_screw' },
+      { label: 'Hex Long Straight', value: 'hex_long_straight' },
+      { label: 'Hex Long Angled', value: 'hex_long_angled' },
+      { label: 'Hex Short Straight', value: 'hex_short_straight' },
+      { label: 'Hex Short Angled', value: 'hex_short_angled' },
+      { label: 'Beacon Body', value: 'beacon_body' },
+      { label: 'Something else...', value: 'others' }
+    ], handleProductSelection);
+  } else if (choice === 'Compatibility Check') {
+    addMessage('bot', botMessages.compatibility);
+    // User needs to type input for this state, so we set orderState
+    orderState = 'compatibility_check';
+  } else if (choice === 'FAQ & Questions') {
+    addMessage('bot', botMessages.questions);
+    const faqOptions = faqData.slice(0, 4).map(item => ({
+      label: item.q,
+      value: item.q
+    }));
+    showOptions(faqOptions, handleFaqQuestion);
+  } else if (choice === 'Speak to an Agent') {
+    addMessage('bot', botMessages.agent);
+    orderState = 'agent_contact';
+  }
+}
+
+function handleProductSelection(productKey) {
+    if (productKey === 'others' || productKey === 'crown_catcher') {
+        addMessage('user', productKey === 'others' ? 'Something else...' : 'Crown Catcher');
+        const shopLink = productLinks[productKey];
+        const messageHtml = `Please visit our shop page to browse all items: <a href="${shopLink}" target="_blank" class="order-now-btn">Go to Shop</a>`;
+        addMessage('bot', messageHtml, true);
+        resetChat();
+        return;
+    }
+    orderData.product = productKey;
+    addMessage('user', productKey.replace('_', ' ').split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')); // Format product name nicely
+    addMessage('bot', `How many packs of ${productKey.replace('_', ' ')} would you like?`);
+    showQuantitySlider();
+}
+
+function handleQuantitySelection(quantity) {
+  orderData.quantity = quantity;
+  addMessage('user', `Quantity: ${quantity}`);
+  const product = orderData.product;
+  const link = productLinks[product] + quantity;
+  const price = productPrices[product] * quantity;
+  const messageHtml = `Your total is approximately $${price.toFixed(2)}. Ready to order? <a href="${link}" target="_blank" class="order-now-btn">Order Now</a>`;
+  addMessage('bot', messageHtml, true);
+  resetChat();
+}
+
+function handleFaqQuestion(question) {
+    addMessage('user', question);
+    const faqItem = faqData.find(item => item.q === question);
+    if (faqItem) {
+        addMessage('bot', faqItem.a, true);
+    } else {
+        addMessage('bot', 'I could not find the answer to that specific question.');
+    }
+    // Offer more FAQ options
+    setTimeout(() => {
+        addMessage('bot', 'Need more info? Tap another question or type "start" to see main options.');
+    }, 1000);
+}
+
+function handleUserInput(message) {
+  addMessage('user', message);
+  if (orderState === 'compatibility_check') {
+    // A real bot would search a database here. We'll simulate a response.
+    addMessage('bot', `Thank you for providing "${message}". Our system indicates that the Badger Screw is compatible with many systems, including the 3i®, Nobel Biocare®, and Straumann® platforms.`);
+    resetChat();
+  } else if (orderState === 'agent_contact') {
+    // A real bot would send this info to a CRM. We'll simulate a response.
+    addMessage('bot', `Thank you for the contact info: "${message}". An agent will reach out to you shortly.`);
+    resetChat();
+  } else if (message.toLowerCase().includes('hello') || message.toLowerCase().includes('hi') || message.toLowerCase().includes('start')) {
+    startChat(); // Restart the flow
+  } else {
+    addMessage('bot', botMessages.unknown);
+    startChat();
+  }
+}
+
+function resetChat() {
+    orderState = null;
+    orderData = {};
+    setTimeout(() => {
+        addMessage('bot', 'Is there anything else I can help with? Type "start" to see main options.');
+    }, 2000);
+}
+
+// === EVENT LISTENERS AND INITIALIZATION ===
+
+document.getElementById('send-btn').addEventListener('click', () => {
+  const input = document.getElementById('user-input');
+  const message = input.value.trim();
+  if (message) {
+    handleUserInput(message);
+    input.value = '';
+  }
+});
+
+document.getElementById('user-input').addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    document.getElementById('send-btn').click();
+  }
+});
+
+function startChat() {
+  addMessage('bot', botMessages.greeting);
+  showOptions([
+    { label: 'Order Products', value: 'Order Products' },
+    { label: 'Compatibility Check', value: 'Compatibility Check' },
+    { label: 'FAQ & Questions', value: 'FAQ & Questions' },
+    { label: 'Speak to an Agent', value: 'Speak to an Agent' }
+  ], handleInitialOptions);
+}
+
+// Start the conversation when the script loads
+document.addEventListener('DOMContentLoaded', startChat);
+
+</script>
